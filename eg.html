@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>The Balanced Being – Yoga Asanas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #fefefe;
+      color: #333;
+    }
+
+    header {
+      background-color: #4b3f72;
+      padding: 10px 0;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+
+    /* Parallax Section */
+    .parallax {
+      background-attachment: fixed;
+      background-size: cover;
+      background-position: center center;
+      height: 500px; /* Adjust height for images */
+      position: relative;
+    }
+
+    /* Hero Section (Yoga Banner) */
+    .hero {
+      background: url('yoga.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      text-shadow: 2px 2px 6px black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      height: 100vh; /* Full screen height */
+    }
+
+    .hero h1 {
+      font-size: 48px;
+    }
+
+    .section {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .section img {
+      width: 100%;
+      border-radius: 10px;
+      margin-top: 15px;
+      object-fit: cover;
+      height: 400px; /* Ensure images are visible in correct size */
+    }
+
+    .section h2 {
+      color: #5a2e14;
+    }
+
+    blockquote {
+      font-style: italic;
+      border-left: 4px solid #b87dbb;
+      padding-left: 15px;
+      margin: 20px 0;
+      color: #555;
+    }
+
+    form input, form textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-family: inherit;
+    }
+
+    form button {
+      background-color: #4b3f72;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    form button:hover {
+      background-color: #614ea0;
+    }
+
+    footer {
+      background-color: #4b3f72;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    /* Scroll to top button */
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: none;
+      background-color: #4b3f72;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      nav a {
+        display: block;
+        margin: 10px 0;
+      }
+    }
+
+    /* Yoga in Action - Hover Effect */
+    #gallery {
+      padding: 40px;
+      text-align: center;
+    }
+
+    #gallery h2 {
+      font-size: 36px;
+      color: #5a2e14;
+    }
+
+    /* Grid Layout for Yoga Poses */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* 3 columns */
+      gap: 20px;
+      justify-items: center;
+      margin-top: 30px;
+    }
+
+    /* Styling for each image */
+    .gallery-item {
+      position: relative;
+      width: 100%;
+      max-width: 350px; /* Adjust max-width as needed */
+      height: 300px; /* Ensure all images are uniform */
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Ensures the image covers the area while maintaining aspect ratio */
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .gallery-item .pose-name {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 24px;
+      font-weight: bold;
+      color: white;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.8);
+      opacity: 0; /* Initially hidden */
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .gallery-item:hover .pose-name {
+      opacity: 1; /* Show the text on hover */
+    }
+
+    .gallery-item:hover img {
+      opacity: 0.6; /* Dim the image on hover */
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on smaller screens */
+      }
+    }
+
+    @media (max-width: 480px) {
+      .gallery-grid {
+        grid-template-columns: 1fr; /* 1 column on mobile */
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#benefits">Benefits</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact-form">Contact</a>
+    </nav>
+  </header>
+
+  <!-- HOME SECTION (Parallax Hero) -->
+  <section id="home" class="hero">
+    <h1>The Balanced Being: Journey Through Yoga Asanas</h1>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section id="about" class="section">
+    <h2>About Yoga</h2>
+    <p>Yoga is an ancient practice that originated in India over 5,000 years ago. It’s a holistic system that combines physical postures (asanas), breathing techniques (pranayama), and meditation. The word "yoga" means to unite—body, mind, and spirit. It’s more than just physical; it’s a path to self-awareness and peace.</p>
+  </section>
+
+  <!-- BENEFITS SECTION -->
+  <section id="benefits" class="section">
+    <h2>🧘‍♀️ 1. Calm & Centered</h2>
+    <p>Yoga is more than just a form of exercise—it's a journey of self-awareness, balance, and inner peace. 
+Through mindful movement, conscious breathing, and focused stillness, yoga helps you reconnect with your body and mind in powerful ways.
+ Whether you're seeking flexibility, strength, or simply a moment of calm in your busy day, yoga offers a space to pause, reflect, and grow.
+ It's a practice that meets you where you are, no matter your age or experience, and gently guides you toward a more centered, balanced life. </p>
+    <div class="parallax" style="background-image: url('1yg.jpeg');"></div>
+
+    <h2>🌿 2. Strength & Resilience</h2>
+    <p>Originating in ancient India, yoga is a time-tested practice that harmonizes the body, mind, and spirit. 
+Today, millions turn to yoga not only for its physical benefits—like improved strength, posture, and flexibility—but also for its ability to relieve stress, 
+enhance mental clarity, and cultivate emotional resilience. From calming breathwork to energizing flows, yoga provides tools that empower you to handle life’s 
+challenges with grace and stability. It’s a practice of balance—within the body, and within life itself.</p>
+    <div class="parallax" style="background-image: url('2yg.webp');"></div>
+
+    <h2>✨ 3. Presence & Reflection</h2>
+    <p>In a world that moves at a relentless pace, yoga offers a sacred pause. It invites you to slow down, breathe deeply, and tune in to the rhythm of your own being.
+ Each pose becomes an opportunity to build strength and flexibility—not just in the body, but also in the mind. With consistent practice, yoga becomes a lifestyle 
+of awareness, compassion, and presence. It's not about perfection—it's about progress, and the beautiful balance we find along the way.</p>
+    <div class="parallax" style="background-image: url('3yg.jpeg');"></div>
+  </section>
+
+  <!-- TESTIMONIALS SECTION -->
+  <section id="testimonials" class="section">
+    <h2>💬 What People Say</h2>
+    <blockquote>"Yoga has changed my life. I feel more centered and peaceful every day!" – Priya S.</blockquote>
+    <blockquote>"A perfect mix of mental calm and physical strength." – Rohan K.</blockquote>
+    <blockquote>"These asanas helped me with back pain and sleep. Highly recommend!" – Meera L.</blockquote>
+  </section>
+
+  <!-- GALLERY SECTION -->
+  <section id="gallery">
+    <h2>🖼️ Yoga in Action</h2>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="pose1.jpeg" alt="Pose 1">
+        <div class="pose-name">Warrior Pose</div>
+      </div>
+      <div class="gallery-item">
+        <img src="pose2.jpeg" alt="Pose 2">
+        <div class="pose-name">Tree Pose</div>
+      </div>
+      <div class="gallery-item">
+        <img src="pose3.jpeg" alt="Pose 3">
+        <div class="pose-name">Downward Dog</div>
+      </div>
+      <div class="gallery-item">
+        <img src="pose4.jpg" alt="Pose 4">
+        <div class="pose-name">Cobra Pose</div>
+      </div>
+      <div class="gallery-item">
+        <img src="pose5.jpg" alt="Pose 5">
+        <div class="pose-name">Child's Pose</div>
+      </div>
+      <div class="gallery-item">
+        <img src="pose6.png" alt="Pose 6">
+        <div class="pose-name">Triangle Pose</div>
+      </div>
+      <div class="gallery-item">
+        <img src="pose7.webp" alt="Pose 7">
+        <div class="pose-name">Mountain Pose</div>
+      </div>
+      <div class="gallery-item">
+        <img src="pose8.webp" alt="Pose 8">
+        <div class="pose-name">Plank Pose</div>
+      </div>
+      <div class="gallery-item">
+        <img src="pose9.png" alt="Pose 9">
+        <div class="pose-name">Bridge Pose</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT FORM SECTION -->
+  <section id="contact-form" class="section">
+    <h2>📬 Contact Us</h2>
+    <form>
+      <label>Name:<br><input type="text" name="name" required></label><br>
+      <label>Email:<br><input type="email" name="email" required></label><br>
+      <label>Message:<br><textarea name="message" rows="5" required></textarea></label><br>
+      <button type="submit">Send</button>
+    </form>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>"Balance is not something you find—it’s something you create."</p>
+    <p>Email: thebalancedbeing@example.com</p>
+  </footer>
+
+  <!-- SCROLL TO TOP BUTTON -->
+  <button id="scrollTopBtn" onclick="scrollToTop()">↑ Top</button>
+
+  <script>
+    // Show button after scrolling
+    window.onscroll = function () {
+      const btn = document.getElementById("scrollTopBtn");
+      btn.style.display = (document.documentElement.scrollTop > 200) ? "block" : "none";
+    };
+
+    function scrollToTop() {
+      document.documentElement.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+
+</body>
+</html>
